@@ -1,7 +1,7 @@
 import '../index.css';
 import {initialCards} from './cards.js';
 import {createCard, removeCard, toggleLikeButtonState} from "./card.js";
-import {showModal, closeModal} from "./modal.js";
+import {openModal, closeModal} from "./modal.js";
 
 const cardContainer = document.querySelector(".places__list");
 const userProfileTitle = document.querySelector(".profile__title");
@@ -43,7 +43,7 @@ const displayImagePopup = (evt, nameValue) => {
   imageDisplay.src = evt.target.src;
   imageDisplay.alt = evt.target.alt;
   imageCaptionDisplay.textContent = nameValue;
-  showModal(imagePopup);
+  openModal(imagePopup);
 }
 
 initialCards.forEach((elem) => {
@@ -53,11 +53,11 @@ initialCards.forEach((elem) => {
 
 editProfileButton.addEventListener("click", () => { 
   populateEditProfileInputs();
-  showModal(editProfileModal);
+  openModal(editProfileModal);
 })
 
 addCardButton.addEventListener("click", () => { 
-  showModal(newCardModal);
+  openModal(newCardModal);
 })
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
